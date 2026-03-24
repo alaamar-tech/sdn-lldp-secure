@@ -1,0 +1,14 @@
+{
+  "name": "SDN LLDP Dev",
+  "image": "mcr.microsoft.com/devcontainers/python:3.9",
+  "postCreateCommand": "pip install ryu eventlet==0.30.2 flask flask-jwt-extended networkx matplotlib requests scapy pytest pytest-cov",
+  "forwardPorts": [5000, 6633, 8080],
+  "portsAttributes": {
+    "5000": {"label": "REST API", "onAutoForward": "notify"},
+    "6633": {"label": "OpenFlow", "onAutoForward": "silent"},
+    "8080": {"label": "Ryu WSAPI", "onAutoForward": "silent"}
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  }
+}
